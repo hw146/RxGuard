@@ -1,6 +1,6 @@
 # RxGuard Input Schema
 
-`src/rxguard/preprocess/aligned_ehr_to_rxguard.py` expects a paper-aligned longitudinal JSONL file, with one patient trajectory per line.
+`src/rxguard/preprocess/aligned_ehr_to_rxguard.py` expects a longitudinal JSONL file, with one patient trajectory per line.
 
 ## Top-level fields
 
@@ -30,7 +30,7 @@ Each aligned concept object should contain:
 - `umls_cui`: UMLS CUI for diagnosis/procedure concepts, and optionally for medication concepts when available for evidence anchoring
 - `rxnorm_rxcui`: RxNorm identifier for medication concepts
 
-The preprocessing step applies the paper-aligned identifier assumptions:
+The preprocessing step assumes the identifier spaces used by RxGuard:
 
 - diagnoses and procedures are read in the UMLS CUI space
 - medications are read in the RxNorm space
@@ -59,4 +59,4 @@ The preprocessing step applies the paper-aligned identifier assumptions:
 }
 ```
 
-This preprocessing entry point is intentionally independent of any other project-specific repository. It only assumes the paper-aligned identifier spaces described above.
+This preprocessing entry point is intentionally independent of any other project-specific repository. It only assumes the identifier spaces described above.

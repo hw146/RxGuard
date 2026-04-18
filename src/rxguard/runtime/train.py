@@ -15,7 +15,7 @@ from rxguard.runtime.artifacts import build_artifact_bundle, build_model
 
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Train RxGuard on paper-aligned trajectory instances.")
+    parser = argparse.ArgumentParser(description="Train RxGuard on trajectory instances.")
     parser.add_argument("--patients-jsonl", type=Path, required=True)
     parser.add_argument("--train-instances-jsonl", type=Path, required=True)
     parser.add_argument("--valid-instances-jsonl", type=Path, default=None)

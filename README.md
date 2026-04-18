@@ -11,17 +11,36 @@ pip install -r requirements.txt
 pip install -e .
 ```
 
-## Repository Scope
+## Data
 
-This public release contains the implementation of the RxGuard framework and the preprocessing/runtime utilities needed to reproduce the paper once the required licensed resources are available.
-
-The release does not include:
+Due to privacy, ethics, and licensing considerations, this repository does not include:
 
 - MIMIC patient data
 - DrugBank full XML
 - UMLS release files
-- derived paper-aligned EHR files
+- derived EHR trajectory files
 - trained checkpoints or prediction outputs
+
+Expected paths:
+
+```text
+data/raw/mimic3/
+data/raw/mimic4/
+assets/
+outputs/
+```
+
+This release expects users to prepare the following external inputs separately:
+
+- longitudinal EHR JSONL files with diagnoses/procedures mapped to UMLS CUIs and medications mapped to RxNorm
+- DrugBank XML for DDI extraction
+- UMLS MRREL.RRF for evidence-graph construction
+
+See:
+
+- `assets/README.md`
+- `data/README.md`
+- `data/input_schema.md`
 
 ## Code Organization
 
@@ -64,20 +83,6 @@ src/rxguard/eval/metrics.py
 src/rxguard/examples/synthetic_demo.py
 ```
 
-## External Data and Assets
-
-This release expects users to prepare the following external inputs separately:
-
-- paper-aligned longitudinal EHR visits for medication recommendation
-- DrugBank XML for DDI extraction
-- UMLS MRREL.RRF for evidence-graph construction
-
-See:
-
-- `assets/README.md`
-- `data/README.md`
-- `data/input_schema.md`
-
 ## Minimal Workflow
 
 Run the synthetic demo:
@@ -86,7 +91,7 @@ Run the synthetic demo:
 python -m rxguard.examples.synthetic_demo
 ```
 
-Convert a paper-aligned longitudinal EHR JSONL file into RxGuard visit trajectories:
+Convert a longitudinal EHR JSONL file into RxGuard visit trajectories:
 
 ```bash
 PYTHONPATH=src python -m rxguard.preprocess.aligned_ehr_to_rxguard \
@@ -157,7 +162,7 @@ PYTHONPATH=src python -m rxguard.runtime.predict \
   --audit-jsonl outputs/test_audits.jsonl
 ```
 
-By default, exported prediction and audit rows omit patient-level identifiers. Add `--include-identifiers` only when you explicitly need them in a local, access-controlled workflow.
+By default, exported prediction and audit rows omit patient-level identifiers. Add `--include-identifiers` only when you explicitly need them in a controlled local workflow.
 
 Evaluate predictions:
 
@@ -169,6 +174,6 @@ PYTHONPATH=src python -m rxguard.eval.metrics \
 
 ## Notes
 
-- The public release keeps the framework code and paper-aligned interfaces, but does not redistribute licensed biomedical resources or patient-derived artifacts.
-- The preprocessing pipeline assumes that diagnoses/procedures and medications have already been aligned into the identifier spaces used by the paper-aligned data format described in `data/input_schema.md`.
+- The public release keeps the framework code and interfaces used by RxGuard, but does not redistribute licensed external resources or patient-derived artifacts.
+- The preprocessing pipeline assumes that diagnoses/procedures have been mapped to UMLS CUIs and medications have been mapped to RxNorm, as described in `data/input_schema.md`.
 - The public release is organized around direct command-line workflows and does not depend on any project-specific remote cluster setup.

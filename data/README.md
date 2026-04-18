@@ -6,7 +6,7 @@ This public release does not include any patient-level data.
 
 - Raw MIMIC-III tables
 - Raw MIMIC-IV tables
-- paper-aligned longitudinal EHR JSONL files
+- longitudinal EHR JSONL files prepared for RxGuard preprocessing
 - train/validation/test instances
 - vocabulary files
 - patient-derived checkpoints, predictions, or audit outputs
@@ -22,6 +22,6 @@ data/
 
 ## Notes
 
-- The public code expects a paper-aligned longitudinal JSONL input for preprocessing into RxGuard trajectories.
+- The public code expects a longitudinal JSONL input in the RxGuard preprocessing format.
 - The expected input fields are documented in `data/input_schema.md`.
-- If you derive aligned visits from your own licensed pipeline, keep those artifacts outside version control and pass their paths through command-line arguments or local config files.
+- If you derive these visit files from your own licensed pipeline, keep them outside version control and pass their paths through command-line arguments.

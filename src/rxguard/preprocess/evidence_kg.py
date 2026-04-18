@@ -38,7 +38,7 @@ DEFAULT_INCLUDE_KEYWORDS = (
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
-        description="Build a paper-aligned UMLS evidence KG scoped to RxGuard concept nodes."
+        description="Build a UMLS evidence KG scoped to RxGuard concept nodes."
     )
     parser.add_argument("--patients-jsonl", type=Path, required=True)
     parser.add_argument("--mrrel-path", type=Path, required=True)

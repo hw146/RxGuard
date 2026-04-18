@@ -31,13 +31,13 @@ class SplitConfig:
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
-        description="Convert paper-aligned longitudinal EHR JSONL into RxGuard medication recommendation instances."
+        description="Convert longitudinal EHR JSONL into RxGuard medication recommendation instances."
     )
     parser.add_argument(
         "--input-jsonl",
         type=Path,
         required=True,
-        help="Path to a paper-aligned longitudinal EHR JSONL file.",
+        help="Path to a longitudinal EHR JSONL file.",
     )
     parser.add_argument("--dataset", required=True, choices=["mimic3", "mimic4"])
     parser.add_argument("--out-dir", type=Path, required=True, help="Output directory for converted artifacts.")

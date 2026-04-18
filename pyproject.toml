@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "rxguard"
 version = "0.1.0"
-description = "Paper-aligned implementation skeleton for RxGuard."
+description = "Public implementation of RxGuard."
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [

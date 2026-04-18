@@ -1,4 +1,4 @@
-# Conservative, paper-aligned core evidence relations for RxGuard.
+# Conservative core evidence relations for RxGuard.
 # These prioritize clinically meaningful medication-condition/procedure links
 # and avoid broad lexical, hierarchy, and ingredient-heavy relations.
 

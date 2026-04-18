@@ -1,6 +1,6 @@
 # External Assets
 
-This repository does not include licensed biomedical resources.
+This repository does not include licensed external resources.
 
 ## Not Included In GitHub
 
@@ -22,4 +22,4 @@ assets/
 
 - `src/rxguard/preprocess/drugbank_ddi.py` uses DrugBank XML to extract RxNorm-level DDI pairs.
 - `src/rxguard/preprocess/evidence_kg.py` uses `MRREL.RRF` together with a relation inventory and allowlist to build the scoped evidence graph.
-- If these assets are stored outside the repository, update the corresponding paths in your local config files before running preprocessing.
+- If these assets are stored outside the repository, pass the corresponding paths through the command-line arguments used in preprocessing.

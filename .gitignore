@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.DS_Store
+
+# Local environments
+.venv/
+venv/
+
+# Local overrides
+.env
+
+# Raw data and derived artifacts
+data/raw/**
+outputs/**
+
+# Licensed external assets
+assets/drugbank/**
+assets/umls/**
+
+# Keep documentation placeholders
+!data/README.md
+!data/raw/.gitkeep
+!assets/README.md
+!assets/drugbank/.gitkeep
+!assets/umls/.gitkeep
+!outputs/.gitkeep
+
+# Keep top-level directories
+!assets/
+!data/
+!outputs/

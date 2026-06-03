@@ -1,4 +1,4 @@
-# RxGuard
+# RxGuard[KDD26]
 
 Code for the paper: `RxGuard: Knowledge-Guided Safety Guardrails for Medication Recommendation`
 
